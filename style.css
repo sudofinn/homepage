@@ -1,0 +1,56 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+
+canvas {
+  position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+  background:rgb(24,24,24);
+}
+
+main {
+  width: 100vw;
+  
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 1em 8em;
+  padding: 120px 0px;
+  
+  
+}
+
+.first-heading-p {
+  color:white;
+  font-size:5rem;
+  
+}
+
+.first-heading-s {
+  color:white;
+
+  background-image: 
+    linear-gradient(90deg, #3399ff, #c00dc0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+.first-heading-text {
+  color:white;
+  margin-top:180px;
+  font-size:30px;
+}
+
+
