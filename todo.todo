@@ -2,3 +2,5 @@ when wishing with mouse, stars should move ( + the sphere from the beginning ( d
 
 using gsap to animate ( at least the text you see when you first enter website, maybe even all 
 so they should start animating when the user sees them )
+
+make own .svg image as web icon
