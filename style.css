@@ -1,56 +1,89 @@
-* {
-  margin:0;
-  padding:0;
-}
-
+@import url("https://use.typekit.net/jmk3xov.css");
 
 canvas {
   position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
+  top: 0;
+  left: 0;
 }
 
 body {
-  overflow: hidden; /* Hide scrollbars */
-  background:rgb(24,24,24);
+  overflow-x: hidden;
 }
+
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 main {
   width: 100vw;
-  
+  color: white;
   z-index: 99;
   position: absolute;
   width: 100%;
-  margin: 1em 8em;
+  margin: 0px auto;
   padding: 120px 0px;
   
-  
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 
-.first-heading-p {
-  color:white;
-  font-size:5rem;
-  
-}
-
-.first-heading-s {
-  color:white;
-
-  background-image: 
-    linear-gradient(90deg, #3399ff, #c00dc0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
-  margin-top: 20px;
-  font-size: 2rem;
-}
-
-.first-heading-text {
-  color:white;
-  margin-top:180px;
-  font-size:30px;
+.non-display {
+  background:none;
 }
 
 
+h1, h2, h3, blockquote {
+  font-family: elevon, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+
+  header {
+    background: var(--dark-bg);
+    grid-column: 2 / span 5;
+    font-size: 2.5rem;
+    padding: 2rem;
+    margin-bottom: var(--spacing);
+  }
+
+  section {
+    grid-column: 2 / 8;
+    padding: 1rem;
+    background: var(--dark-bg);
+    font-size: 2rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / span 9;
+    margin-bottom: var(--spacing);
+  }
+
+  blockquote p {
+    color: black;
+    background-color: white;
+    font-size: 4rem;
+    display: inline;
+    line-height: 1;
+  }
+
+  .left {
+    grid-column: 6 / 12;
+  }

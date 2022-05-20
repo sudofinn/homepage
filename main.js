@@ -1,51 +1,122 @@
-import './style.css'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import './style.css';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import * as dat from 'dat.gui'
 
-// Debug
+// Setup
+
+const scene = new THREE.Scene();
+
 const gui = new dat.GUI()
 
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-// Scene
-const scene = new THREE.Scene()
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#bg'),
+});
 
-// Objects
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+camera.position.setZ(30);
+camera.position.setX(-3);
 
-const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
-const material = new THREE.PointsMaterial( {
-    size:0.005,
-    //color:0xff33cc,
-    lights:true
-})
-const sphere = new THREE.Points(geometry, material);
+renderer.render(scene, camera);
 
+// Torus
 
+const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+const torus = new THREE.Mesh(geometry, material);
 
-sphere.position.x = 1
-scene.add(sphere)
-
+scene.add(torus);
 
 // Lights
 
-const pointLight = new THREE.PointLight(0xff33cc, 2)
-pointLight.position.x = 1
-pointLight.position.y = 1
-pointLight.position.z = 1
-scene.add(pointLight)
-
-gui.add(pointLight.position,"x").min(-5).max(10).step(0.1)
-//gui.add(pointLight.position,"y").min(-5).max(10).step(0.1)
-//gui.add(pointLight.position,"z").min(-5).max(10).step(0.1)
-
-//const pointLightHelper = new THREE.PointLightHelper(pointLight)
-//scene.add(pointLightHelper)
 
 
 
+// Helpers
 
-//Sizes
+// const lightHelper = new THREE.PointLightHelper(pointLight)
+// const gridHelper = new THREE.GridHelper(200, 50);
+// scene.add(lightHelper, gridHelper)
 
+// const controls = new OrbitControls(camera, renderer.domElement);
+
+function addStar() {
+  const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  const star = new THREE.Mesh(geometry, material);
+
+  const [x, y, z] = Array(3)
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(100));
+
+  star.position.set(x, y, z);
+  scene.add(star);
+}
+
+Array(200).fill().forEach(addStar);
+
+// Background
+
+const spaceTexture = new THREE.TextureLoader().load('Space.jpg');
+//scene.background = spaceTexture;
+
+// Avatar
+
+const sphereTexture = new THREE.TextureLoader().load('NormalMap.png');
+
+const sphereP = new THREE.Mesh(new THREE.SphereGeometry( 2, 32, 16 ), new THREE.MeshStandardMaterial({
+    normalMap:sphereTexture,
+    color:new THREE.Color(0x292929)
+}));
+sphereP.position.z = -5;
+sphereP.position.x = 2.4;
+
+scene.add(sphereP);
+
+//Light front
+const pointLightSphereP = new THREE.PointLight(0x33CAFF,5)
+//gui.add(pointLightSphereP.position,"x").min(-10).max(100).step(0.1)
+scene.add(pointLightSphereP)
+
+const pointLightSphereS = new THREE.PointLight(0xFF33FC,5)
+pointLightSphereS.position.x = 5
+//gui.add(pointLightSphereP.position,"x").min(-10).max(100).step(0.1)
+scene.add(pointLightSphereS)
+
+
+
+// Moon
+
+const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture,
+  })
+);
+
+scene.add(moon);
+
+moon.position.z = 30;
+moon.position.setX(-10);
+
+
+const geometryDode = new THREE.CylinderGeometry( 1, 2, 3, 4 );
+const materialDode = new THREE.MeshStandardMaterial()
+const meshDode = new THREE.Mesh(geometryDode, materialDode)
+scene.add(meshDode)
+meshDode.position.z = 43
+meshDode.position.setX(-10)
+meshDode.position.y = -3
+
+
+//Resize
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
@@ -54,7 +125,7 @@ const sizes = {
 window.addEventListener('resize', () =>
 {
     // Update sizes
-    sizes.width = window.innerWidth 
+    sizes.width = window.innerWidth
     sizes.height = window.innerHeight
 
     // Update camera
@@ -67,29 +138,24 @@ window.addEventListener('resize', () =>
 })
 
 
-//Camera
+// Scroll Animation
 
-// Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 0
-camera.position.y = 0
-camera.position.z = 2
-scene.add(camera)
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+  moon.rotation.x += 0.05;
+  moon.rotation.y += 0.075;
+  moon.rotation.z += 0.05;
 
-// Controls
-// const controls = new OrbitControls(camera, canvas)
-// controls.enableDamping = true
+  sphereP.rotation.y += 0.01;
+  sphereP.rotation.z += 0.01;
 
-//Renderer
-const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector("#bg"),
-    alpha: true
-})
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  camera.position.z = t * -0.01;
+  camera.position.x = t * -0.0002;
+  camera.rotation.y = t * -0.0002;
+}
 
-//Interactivity using Raycaster
-
+document.body.onscroll = moveCamera;
+moveCamera();
 
 const pointer = new THREE.Vector2()
 const raycaster = new THREE.Raycaster()
@@ -105,26 +171,36 @@ function onMouseMove(event) {
 }
 
 
-//Renderer
 const clock = new THREE.Clock()
 
 const tick = () =>
 {
-
-    const elapsedTime = clock.getElapsedTime()
-   
     
-    raycaster.setFromCamera(pointer, camera)
+    raycaster.setFromCamera( pointer, camera )
+    renderer.render( scene, camera );
+
     targetX = pointer.x * .001
     targetY = pointer.y * .001
+    
+    
+
+    const elapsedTime = clock.getElapsedTime()
 
     // Update objects
-    sphere.rotation.y = .5 * elapsedTime
+    sphereP.rotation.y = .5 * elapsedTime //.5 means how fast
+    
+    //mouse
+    sphereP.rotation.y += .5 * (targetX - sphereP.rotation.y) 
+    sphereP.rotation.x += .05 * (targetY - sphereP.rotation.x) 
+    sphereP.rotation.y += -.05 * (targetY - sphereP.rotation.x)
 
-     //Mouse
-    sphere.rotation.y += .5 * (targetX - sphere.rotation.y) 
-    sphere.rotation.x += .05 * (targetY - sphere.rotation.x) 
-    //sphere.rotation.y += -.05 * (targetY - sphere.rotation.x)
+   
+    
+
+    torus.rotation.x += 0.01
+    torus.rotation.y += 0.005
+    torus.rotation.z += 0.01
+
     
 
     // Update Orbital Controls
