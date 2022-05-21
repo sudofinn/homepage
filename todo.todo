@@ -2,7 +2,10 @@ maybe when wishing with mouse, stars should move ( + the sphere from the beginni
 
 maybe at end typing animation like at start with same font, div around
 
-make loading screen https://www.youtube.com/watch?v=wwJcYaJg8Mc
+good folder structure ( every file no more than 50 lines, make src and assets fodler)
+
+custom scrollbar
+
 add 404 page
 
 link email and github profile
@@ -10,3 +13,5 @@ link email and github profile
 make own .svg image as web icon
 
 make responsive (at least one element should always be seen on mobile)
+
+give credits in css /js w. link to tutorials
