@@ -1,13 +1,13 @@
 import './style.css';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import * as dat from 'dat.gui'
 
 // Setup
 
 const scene = new THREE.Scene();
 
-const gui = new dat.GUI()
+//const gui = new dat.GUI()
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -72,7 +72,7 @@ const sphereP = new THREE.Mesh(new THREE.SphereGeometry( 2, 32, 16 ), new THREE.
     color:new THREE.Color(0x292929)
 }));
 sphereP.position.z = -5;
-sphereP.position.x = 2.4;
+sphereP.position.x = 2.5;
 
 scene.add(sphereP);
 
@@ -192,7 +192,9 @@ const tick = () =>
     //mouse
     sphereP.rotation.y += .5 * (targetX - sphereP.rotation.y) 
     sphereP.rotation.x += .05 * (targetY - sphereP.rotation.x) 
-    sphereP.rotation.y += -.05 * (targetY - sphereP.rotation.x)
+    sphereP.rotation.y += -.05 * (targetY - sphereP.rotation.x) 
+    
+   
 
    
     

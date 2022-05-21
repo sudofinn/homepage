@@ -1,8 +1,12 @@
-when wishing with mouse, stars should move ( + the sphere from the beginning ( does it already))
+maybe when wishing with mouse, stars should move ( + the sphere from the beginning ( does it already))
 
-using gsap to animate ( at least the text you see when you first enter website, maybe even all 
-so they should start animating when the user sees them )
+maybe at end typing animation like at start with same font, div around
 
+make loading screen https://www.youtube.com/watch?v=wwJcYaJg8Mc
 add 404 page
 
+link email and github profile
+
 make own .svg image as web icon
+
+make responsive (at least one element should always be seen on mobile)
