@@ -60,6 +60,58 @@ canvas {
     margin-bottom: var(--spacing);
   }
 
+/*
+.header-ani {
+  animation-name:wipe-enter;
+  animation-duration:1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes wipe-enter {
+	0% {
+		transform: translateX(15%)
+	}
+	100% {
+		transform: translateX(0%)
+	}
+ 
+}
+*/
+
+/* type writer effect */
+/* partly taken from https://codepen.io/SitePoint/pen/YzxKGpa*/
+.header-ani{
+      font-size: 2.5rem;
+      overflow: hidden;
+      
+      white-space: nowrap; 
+      width: 0;
+      animation: 
+        typing 1s steps(25, end) forwards;
+  }
+
+ .header-p{
+      font-size: 2.5rem; 
+      overflow: hidden;
+      border-right: .15em solid #33CAFF;
+      white-space: nowrap; 
+      width: 0;
+      animation: 
+        typing 1s steps(25, end) forwards;
+      animation-delay: 1s;
+  }
+
+   @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  @keyframes blink {
+    from { border-color: transparent }
+    to { border-color: orange; }
+  }
+
+
+
   section {
     grid-column: 2 / 8;
     padding: 1rem;
