@@ -20,8 +20,10 @@ body {
 }
 
 /* Custom Scrollbar */
+/* edge, chrome */
 html::-webkit-scrollbar {
       width: 20px; 
+    
    }
 
 html::-webkit-scrollbar-track {
@@ -32,6 +34,17 @@ html::-webkit-scrollbar-thumb {
     background: #8cc5da;
     border-radius: 25px;
   }
+
+/* firefox */
+html {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: #d883d7 #8cc5da;
+  scrollbar-width: thin;
+}
+
+
 
 main {
   width: 100vw;
@@ -73,26 +86,12 @@ canvas {
     margin-bottom: var(--spacing);
   }
 
-/*
-.header-ani {
-  animation-name:wipe-enter;
-  animation-duration:1s;
-  animation-iteration-count: 1;
-}
 
-@keyframes wipe-enter {
-	0% {
-		transform: translateX(15%)
-	}
-	100% {
-		transform: translateX(0%)
-	}
- 
-}
-*/
 
 /* type writer effect */
 /* partly taken from https://codepen.io/SitePoint/pen/YzxKGpa*/
+
+
 .header-ani{
       font-size: 2.5rem;
       overflow: hidden;
@@ -101,6 +100,7 @@ canvas {
       width: 0;
       animation: 
         typing 1s steps(25, end) forwards;
+      animation-delay:0.6s;
   }
 
  .header-p{
@@ -114,6 +114,28 @@ canvas {
       animation-delay: 1s;
   }
 
+.footer-h {
+      overflow: hidden;
+      border-right: .15em solid #33CAFF;
+      white-space: nowrap; 
+      width: 0;
+      animation: 
+        typing 1s steps(25, end) forwards;
+      animation-delay: 2s;
+
+}
+
+.footer-p {
+      overflow: hidden;
+      border-right: .15em solid #d883d7;
+      white-space: nowrap; 
+      width: 0;
+      animation: 
+        typing 1s steps(25, end) forwards;
+      animation-delay: 3s;
+
+}
+
 
 
 
@@ -121,12 +143,7 @@ canvas {
     from { width: 0 }
     to { width: 100% }
   }
-  @keyframes blink {
-    from { border-color: transparent }
-    to { border-color: orange; }
-  }
-
-
+ 
 
 
 
