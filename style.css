@@ -45,6 +45,12 @@ html {
 }
 
 
+a {
+  text-decoration: none;
+  color: #ba47b8
+}
+
+
 
 main {
   width: 100vw;
@@ -61,6 +67,7 @@ main {
 
 .non-display {
   background:none;
+  
 }
 
 
