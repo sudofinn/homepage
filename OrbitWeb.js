@@ -3,8 +3,11 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
+import "./spinner.js"
+
+
 // Debug
-const gui = new dat.GUI()
+//const gui = new dat.GUI()
 
 
 // Scene
@@ -36,10 +39,7 @@ pointLightSphereS.position.x = 2
 //gui.add(pointLightSphereP.position,"x").min(-10).max(100).step(0.1)
 scene.add(pointLightSphereS)
 
-
-/**
- * Sizes
- */
+//Sizes
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
@@ -60,10 +60,7 @@ window.addEventListener('resize', () =>
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-/**
- * Camera
- */
-// Base camera
+//Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
 camera.position.y = 0
@@ -103,19 +100,14 @@ Array(200).fill().forEach(addStar) // want to have 200 random values
 
 
 
-/**
- * Renderer
- */
+//Renderer
 const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector("#bg")
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-/**
- * Animate
- */
-
+//Animate
 const clock = new THREE.Clock()
 
 const tick = () =>

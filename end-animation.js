@@ -1,3 +1,4 @@
+// animation at end ( might be deleted if becomes unnecessary)
 const observer = new IntersectionObserver(entries => {
   // Loop over the entries
   entries.forEach(entry => {

@@ -46,7 +46,6 @@ html {
 
 
 a {
-  text-decoration: none;
   color: #ba47b8
 }
 
@@ -177,6 +176,8 @@ canvas {
     display: inline;
     line-height: 1;
   }
+
+  
 
   .left {
     grid-column: 6 / 12;
