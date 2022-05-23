@@ -9,6 +9,10 @@ import "./end-animation"
 
 
 
+//Credits
+//some code was taken from https://github.com/fireship-io/threejs-scroll-animation-demo/blob/main/main.js 
+//some code was taken from https://github.com/designcourse/threejs-webpack-starter/blob/master/src/script.js
+
 // Setup
 
 const scene = new THREE.Scene();

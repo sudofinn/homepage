@@ -1,5 +1,8 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
+/* some code was taken from https://github.com/fireship-io/threejs-scroll-animation-demo/blob/main/style.css*/
+
+
 canvas {
   position: fixed;
   top: 0;
@@ -183,6 +186,8 @@ canvas {
     grid-column: 6 / 12;
   }
 
+
+/* credits to https://github.com/jlop007/add-loader-to-website/blob/master/create-add-loader/styles.css */
 
   .spinner-wrapper{
     width: 100%;
