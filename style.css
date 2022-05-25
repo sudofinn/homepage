@@ -99,6 +99,85 @@ canvas {
   }
 
 
+/* responsive */
+.lg-view{
+   display:inline-block;
+}
+
+.sm-view{
+   display:none;
+}
+
+
+
+.sm-view-2{
+   display:none;
+}
+
+.sm-view-3 {
+  display: none;
+}
+
+
+
+
+
+@media (max-width:1483px) {
+  header {
+     grid-column: 2 / span 4;
+     
+  }
+   .lg-view{
+       display:none;
+       
+    }
+    .lg-view-2 {
+      display: none;
+    }
+   .lg-view-3 {
+     display: none;
+   }
+   .sm-view {
+     display: inline-block;
+     
+   } 
+
+   .sm-view-2 {
+     display:inherit;
+   }
+   .sm-view-3 {
+     display: inherit;
+   }
+
+   
+}
+
+@media(max-width:1179px) {
+  .sm-view {
+    font-size:3.5rem;
+  }
+  .header-p {
+    font-size:1rem;
+  }
+}
+
+
+@media (orientation: portrait) {
+  .header-ani {
+     
+  }
+  .sm-view {
+    font-size:3.5rem;
+  }
+  .header-p {
+    font-size:1rem;
+  }
+}
+
+
+
+
+
 
 /* type writer effect */
 /* partly taken from https://codepen.io/SitePoint/pen/YzxKGpa*/
@@ -119,7 +198,7 @@ canvas {
       font-size: 2.5rem; 
       overflow: hidden;
       border-right: .15em solid #33CAFF;
-      white-space: nowrap; 
+      word-wrap: break-all;
       width: 0;
       animation: 
         typing 1s steps(25, end) forwards;
@@ -188,6 +267,8 @@ canvas {
   .left {
     grid-column: 6 / 12;
   }
+  
+
 
 
 /* credits to https://github.com/jlop007/add-loader-to-website/blob/master/create-add-loader/styles.css */
