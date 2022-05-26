@@ -1,10 +1,3 @@
-maybe when wishing with mouse, stars should move ( + the sphere from the beginning ( does it already))
-
-maybe at end typing animation like at start with same font, div around
-
------------------------------
-
-
-
-
-make responsive (at least one element should always be seen on mobile)
+1. get orbitweb.js to show up
+2. fix images ( texture map should appear)
+3. do correct responsivness ( huge adjustments)
