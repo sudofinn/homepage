@@ -92,7 +92,7 @@ canvas {
 
   header {
     background: var(--dark-bg);
-    grid-column: 2 / span 7;
+    grid-column: 2 / span 5;
     font-size: 2.5rem;
     padding: 2rem;
     margin-bottom: var(--spacing);
@@ -193,8 +193,8 @@ canvas {
   header {
     grid-column: 2 / span 8;
   }
-  section  {
-    grid-column: 2 / span 5;
+  .light  {
+    grid-column: 2 / span 10;
   } 
 }
 
@@ -263,13 +263,15 @@ canvas {
 
 
   section {
-    grid-column: 2 / span 10;
+    grid-column: 2 / span 5;
     padding: 1rem;
     background: var(--dark-bg);
     font-size: 2rem;
     line-height: 1.5;
     margin-bottom: var(--spacing);
   }
+
+  
 
   blockquote {
     margin: 0;
