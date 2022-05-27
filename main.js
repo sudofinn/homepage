@@ -97,14 +97,16 @@ scene.add(pointLightSphereS)
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('./moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('./normal.jpg');
+import moonUrl from "./moon.jpg"
+import normalUrl from "./normal.jpg"
+const moonTexture = new THREE.TextureLoader().load(moonUrl);
+const normalTexture = new THREE.TextureLoader().load(normalUrl);
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
   new THREE.MeshStandardMaterial({
-    //map: moonTexture,
-    //normalMap: normalTexture,
+    map: moonTexture,
+    normalMap: normalTexture,
   })
 );
 
