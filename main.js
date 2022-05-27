@@ -71,10 +71,11 @@ Array(200).fill().forEach(addStar);
 // Background
 
 
-const sphereTexture = new THREE.TextureLoader().load('./NormalMap.png');
+import sphereUrl from "./NormalMap.png"
+const sphereTexture = new THREE.TextureLoader().load(sphereUrl);
 
 const sphereP = new THREE.Mesh(new THREE.SphereGeometry( 2, 32, 16 ), new THREE.MeshStandardMaterial({
-    //normalMap:sphereTexture,
+    normalMap:sphereTexture,
     color:new THREE.Color(0x292929)
 }));
 sphereP.position.z = -5;
