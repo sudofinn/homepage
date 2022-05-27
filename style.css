@@ -119,6 +119,14 @@ canvas {
 }
 
 
+.lg-view-4 {
+  display: inline-block;
+}
+.sm-view-4 {
+  display: none;
+}
+
+
 
 
 
@@ -159,7 +167,14 @@ canvas {
   .header-p {
     font-size:1rem;
   }
+  .sm-view-4 {
+    display: inline-block;
+  }
+  .lg-view-4 {
+    display: none;
+  }
 }
+
 
 
 @media (orientation: portrait) {
@@ -172,6 +187,15 @@ canvas {
   .header-p {
     font-size:1rem;
   }
+}
+
+@media(max-width:480px) {
+  header {
+    grid-column: 2 / span 7;
+  }
+  section  {
+    grid-column: 2 / span 5;
+  } 
 }
 
 
@@ -239,7 +263,7 @@ canvas {
 
 
   section {
-    grid-column: 2 / 8;
+    grid-column: 2 / span 10;
     padding: 1rem;
     background: var(--dark-bg);
     font-size: 2rem;
