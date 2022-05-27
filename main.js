@@ -71,7 +71,7 @@ Array(200).fill().forEach(addStar);
 // Background
 
 
-const sphereTexture = new THREE.TextureLoader().load('NormalMap.png');
+const sphereTexture = new THREE.TextureLoader().load('./NormalMap.png');
 
 const sphereP = new THREE.Mesh(new THREE.SphereGeometry( 2, 32, 16 ), new THREE.MeshStandardMaterial({
     normalMap:sphereTexture,
@@ -96,8 +96,8 @@ scene.add(pointLightSphereS)
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+const moonTexture = new THREE.TextureLoader().load('./moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('./normal.jpg');
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
