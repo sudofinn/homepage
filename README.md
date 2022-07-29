@@ -1,3 +1,19 @@
+![GitHub repo file count](https://img.shields.io/github/directory-file-count/sudofinn/homepage)
+![GitHub top language](https://img.shields.io/github/languages/top/sudofinn/homepage)
+![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/sudofinn/homepage/master)
+
+<div>
+   <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>
+
+  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" title="CSS" alt="CSS" width="40" height="40"/>
+  
+  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML" alt="HTML" width="40" height="40"/>
+  
+ 
+  </div>
+
+
+
 # Sudofinn Personal Website
 ## About
 This is my personal website. It uses ThreeJS to make the 3d part and  plain CSS for all the  animations.
